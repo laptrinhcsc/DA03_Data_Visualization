@@ -1,0 +1,58 @@
+Traceback (most recent call last):
+  File "C:\Users\bao\AppData\Roaming\Python\Python310\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\bao\AppData\Roaming\Python\Python310\site-packages\nbclient\client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "C:\Users\bao\AppData\Roaming\Python\Python310\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "C:\Program Files\Python310\lib\asyncio\base_events.py", line 649, in run_until_complete
+    return future.result()
+  File "C:\Users\bao\AppData\Roaming\Python\Python310\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\bao\AppData\Roaming\Python\Python310\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\bao\AppData\Roaming\Python\Python310\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Tạo dữ liệu giả lập
+days = ['Thứ Hai', 'Thứ Ba', 'Thứ Tư', 'Thứ Năm', 'Thứ Sáu', 'Thứ Bảy', 'Chủ Nhật']
+hours = range(24)
+
+np.random.seed(0)
+data = np.random.randint(50, 500, size=(7, 24))
+
+# Tạo DataFrame
+df = pd.DataFrame(data, index=days, columns=hours)
+
+# Thiết lập kích thước biểu đồ
+plt.figure(figsize=(12, 6))
+
+# Vẽ Heat Map
+sns.heatmap(df, cmap='YlOrRd', linewidths=.5, annot=True, fmt="d")
+
+# Thiết lập tiêu đề và nhãn
+# plt.title('Biểu đồ Heat Map lưu lượng truy cập website theo giờ và ngày trong tuần', fontsize=16)
+# plt.xlabel('Giờ trong ngày', fontsize=12)
+# plt.ylabel('Ngày trong tuần', fontsize=12)
+
+# Hiển thị biểu đồ
+plt.show()
+
+------------------
+
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [1;32mIn[1], line 1[0m
+[1;32m----> 1[0m [38;5;28;01mimport[39;00m [38;5;21;01mpandas[39;00m [38;5;28;01mas[39;00m [38;5;21;01mpd[39;00m
+[0;32m      2[0m [38;5;28;01mimport[39;00m [38;5;21;01mnumpy[39;00m [38;5;28;01mas[39;00m [38;5;21;01mnp[39;00m
+[0;32m      3[0m [38;5;28;01mimport[39;00m [38;5;21;01mseaborn[39;00m [38;5;28;01mas[39;00m [38;5;21;01msns[39;00m
+
+[1;31mModuleNotFoundError[0m: No module named 'pandas'
+

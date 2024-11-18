@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Các dạng biểu đồ phân phối dữ liệu &#8212; Data Visualization</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Buoi_2_Matplotlib_Seaborn/cac_dang_bieu_do_phan_phoi_du_lieu';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Các dạng biểu đồ thể hiện mối quan hệ dữ liệu" href="cac_dang_bieu_do_the_hien_mqh_du_lieu.html" />
+    <link rel="prev" title="Trực quan hóa dữ liệu với Seaborn" href="Truc_quan_hoa_du_lieu_voi_Seaborn.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/matplotlib_seaborn.png" class="logo__image only-light" alt="Data Visualization - Home"/>
+    <img src="../_static/matplotlib_seaborn.png" class="logo__image only-dark pst-js-only" alt="Data Visualization - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Phân tích trực quan hóa dữ liệu
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Vai_tro_cua_truc_quan_hoa_du_lieu.html">Vai trò của trực quan hóa dữ liệu</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Buoi_1_Vai_tro/Tong_quan.html">Tại sao phải trực quan hóa dữ liệu?</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../Buoi_1_Vai_tro/Cac_nguyen_tac_quan_trong.html">Các nguyên tắc quan trọng trong Phân tích Trực quan hóa Dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Buoi_1_Vai_tro/Cac_bieu_do_thong_dung.html">Các loại biểu đồ thông dụng</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Buoi_1_Vai_tro/Mau_sac.html">Tầm quan trọng của màu sắc trong phân tích trực quan hóa dữ liệu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Matplotlib_Seaborn.html">Trực quan hóa dữ liệu với Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Phan_loai_du_lieu.html">Phân loại dữ liệu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cac_thanh_phan_trong_bieu_do.html">Các thành phần trong biểu đồ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Cac_thu_vien_truc_quan_hoa_du_lieu.html">Các thư viện trực quan hóa dữ liệu</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Truc_quan_hoa_du_lieu_voi_Seaborn.html">Trực quan hóa dữ liệu với Seaborn</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Các dạng biểu đồ phân phối dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cac_dang_bieu_do_the_hien_mqh_du_lieu.html">Các dạng biểu đồ thể hiện mối quan hệ dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cac_dang_bieu_do_the_hien_thong_ke_du_lieu.html">Các dạng biểu đồ thể hiện thống kê dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dang_bieu_do_the_hien_xu_huong_du_lieu.html">Dạng biểu đồ thể hiện xu hướng dữ liệu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="Truc_quan_da_bien_voi_luoi.html">Trực quan đa biến với lưới</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FBuoi_2_Matplotlib_Seaborn/cac_dang_bieu_do_phan_phoi_du_lieu.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Buoi_2_Matplotlib_Seaborn/cac_dang_bieu_do_phan_phoi_du_lieu.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Các dạng biểu đồ phân phối dữ liệu</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-plot">Density Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box Plot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-tich-don-bien-bien-lien-tuc">Phân tích đơn biến (biến liên tục)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-tich-bien-phan-loai-bien-lien-tuc">Phân tích biến phân loại – biến liên tục</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plot">Violin Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swarm-plot">Swarm Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strip-plot">Strip Plot</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="cac-dang-bieu-do-phan-phoi-du-lieu">
+<h1>Các dạng biểu đồ phân phối dữ liệu<a class="headerlink" href="#cac-dang-bieu-do-phan-phoi-du-lieu" title="Link to this heading"></a></h1>
+<p><strong>Cú pháp chung</strong>: <code class="docutils literal notranslate"><span class="pre">sns.&lt;ten</span> <span class="pre">bieu</span> <span class="pre">do&gt;(data</span> <span class="pre">=</span> <span class="pre">dataframe,</span> <span class="pre">x=</span> <span class="pre">&lt;column_name&gt;,</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">&lt;column_name&gt;,…)</span></code></p>
+<p>Các dạng biểu đồ thể hiện phân phối dữ liệu đóng vai trò quan trọng trong việc hiểu và phân tích dữ liệu. Chúng giúp chúng ta nhanh chóng nắm bắt được đặc điểm tổng quát của một tập dữ liệu, như xu hướng trung tâm, sự phân tán, và hình dạng của phân phối. Những biểu đồ này không chỉ giúp chúng ta đưa ra những nhận định chính xác mà còn hỗ trợ trong việc truyền đạt thông tin một cách trực quan và dễ hiểu đến người xem. Việc sử dụng đúng loại biểu đồ có thể làm nổi bật những đặc điểm quan trọng của dữ liệu, giúp đưa ra quyết định dựa trên dữ liệu một cách hiệu quả hơn.</p>
+<section id="density-plot">
+<h2>Density Plot<a class="headerlink" href="#density-plot" title="Link to this heading"></a></h2>
+<p><strong>Biểu đồ mật độ</strong> (Density Plot) là một biểu đồ thể hiện phân phối dữ liệu dưới dạng đường cong liên tục. Nó cho ta thấy xác suất xuất hiện của các giá trị trong tập dữ liệu. Phần cao nhất của đường cong chỉ ra giá trị xuất hiện nhiều nhất, trong khi độ rộng của đường cong cho biết mức độ phân tán của dữ liệu. <code class="docutils literal notranslate"><span class="pre">Density</span> <span class="pre">Plot</span></code> hữu ích trong việc nhận biết hình dạng tổng thể của phân phối dữ liệu, cho phép ta dễ dàng xác định xem phân phối có đối xứng hay lệch về một bên. Biểu đồ Density sẽ thể hiện bằng các dạng biểu đồ lệch phải (hay còn gọi là Right – Skew, Positive – Skew), đối xứng (hay còn gọi là đồ thị hình chuông – Bell curved), lệch trái (hay còn gọi là Left – skew, Negative Skew) thông qua các giá trị thống kê Mean, Median, Mode. Nó cũng giúp phát hiện các đỉnh trong dữ liệu, chỉ ra có thể có nhiều nhóm con trong tập dữ liệu. Biểu đồ này đặc biệt hữu ích khi so sánh phân phối của nhiều nhóm dữ liệu khác nhau, vì các đường cong có thể được vẽ chồng lên nhau mà vẫn dễ nhìn.</p>
+<figure class="align-default" id="density-skew">
+<img alt="../_images/density_skew.png" src="../_images/density_skew.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Density là biểu đồ thể hiện phân phối mật độ xác suất tương tự như Histogram, nhưng thay vì là hình các cột bar như Histogram thì Density thể hiện đường phân phối KDE để thể hiện mật độ xác suất.</span><a class="headerlink" href="#density-skew" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.displot(data</span> <span class="pre">=</span> <span class="pre">titanic,</span> <span class="pre">x=</span> <span class="pre">&quot;age&quot;)</span></code></p>
+<figure class="align-default" id="histogram-density">
+<img alt="../_images/histogram_density.png" src="../_images/histogram_density.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Density Plot không khác gì Histogram cả, cũng là biểu đồ cột bar và đếm tần suất xảy ra của các giá trị.</span><a class="headerlink" href="#histogram-density" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.displot(data</span> <span class="pre">=</span> <span class="pre">titanic,</span> <span class="pre">x=</span> <span class="pre">&quot;age&quot;,</span> <span class="pre">kind=</span> <span class="pre">&quot;kde&quot;)</span></code></p>
+<figure class="align-default" id="kde-density">
+<img alt="../_images/kde_density.png" src="../_images/kde_density.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Khi thêm thuộc tính <code class="docutils literal notranslate"><span class="pre">kind=</span> <span class="pre">kde</span></code>, lúc này từ các cột bar sẽ chuyển thành các đường phân phối kde và trục y lúc này không còn là count nữa, mà thể hiện giá trị của hàm mật độ phân phối.</span><a class="headerlink" href="#kde-density" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.displot(data=titanic,</span> <span class="pre">x='age',</span> <span class="pre">kind='kde',</span> <span class="pre">hue</span> <span class="pre">=</span> <span class="pre">'survived')</span></code></p>
+<figure class="align-default" id="density-hue">
+<img alt="../_images/density_hue.png" src="../_images/density_hue.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Lúc này biểu đồ sẽ tách phân phối của <strong>người sống sót</strong> riêng và <strong>người không sống sót</strong> riêng chỉ bằng một tham số duy nhất là <code class="docutils literal notranslate"><span class="pre">hue</span></code>.</span><a class="headerlink" href="#density-hue" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.kdeplot(data=titanic,</span> <span class="pre">x='age',</span> <span class="pre">hue='survived',</span> <span class="pre">fill=True)</span></code></p>
+<figure class="align-default" id="kde-plot">
+<img alt="../_images/kde_plot.png" src="../_images/kde_plot.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Chúng ta có thể biểu diễn biểu đồ Density Plot bằng <code class="docutils literal notranslate"><span class="pre">kde</span> <span class="pre">plot</span></code>.</span><a class="headerlink" href="#kde-plot" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="box-plot">
+<h2>Box Plot<a class="headerlink" href="#box-plot" title="Link to this heading">#</a></h2>
+<p><strong>Box Plot</strong>, hay còn gọi là biểu đồ hộp, là một cách hiệu quả để tóm tắt phân phối dữ liệu. Nó hiển thị năm số tóm tắt quan trọng: giá trị nhỏ nhất, tứ phân vị thứ nhất, trung vị, tứ phân vị thứ ba, và giá trị lớn nhất. Hộp chính giữa đại diện cho 50% dữ liệu ở giữa, với đường ngang trong hộp là trung vị. Các điểm nằm ngoài giá trị nhỏ nhất và giá trị lớn nhất được coi là các giá trị ngoại lệ và được biểu diễn riêng lẻ. <strong>Box Plot</strong> rất hữu ích trong việc so sánh phân phối giữa nhiều nhóm dữ liệu, cho phép ta dễ dàng nhận ra sự khác biệt về trung tâm, độ phân tán và sự xuất hiện của các giá trị ngoại lệ. Nó cũng giúp phát hiện nhanh chóng sự bất đối xứng trong phân phối dữ liệu.</p>
+<p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.boxplot(data</span> <span class="pre">=</span> <span class="pre">dataframe,</span> <span class="pre">x=</span> <span class="pre">&lt;column_name&gt;,</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">&lt;column_name&gt;,…)</span></code></p>
+<figure class="align-default" id="boxplot-outlier">
+<img alt="../_images/boxplot_outliers_1.png" src="../_images/boxplot_outliers_1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">Box Plot cũng là dạng biểu đồ phân phối nhưng phân phối giá trị theo khoảng gọi là tứ phân vị.</span><a class="headerlink" href="#boxplot-outlier" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Có 2 cách vẽ biểu đồ Box Plot: phân tích đơn biến (biến liên tục) và phân tích biến phân loại – biến liên tục.</p>
+<section id="phan-tich-don-bien-bien-lien-tuc">
+<h3>Phân tích đơn biến (biến liên tục)<a class="headerlink" href="#phan-tich-don-bien-bien-lien-tuc" title="Link to this heading"></a></h3>
+<p>Phân tích đơn biến là việc xem xét một biến số duy nhất tại một thời điểm. Khi sử dụng <strong>Box Plot</strong> cho phân tích đơn biến với biến liên tục, chúng ta tạo ra một biểu đồ hộp duy nhất cho toàn bộ tập dữ liệu. Phân tích này giúp chúng ta hiểu được phân phối tổng thể của biến, bao gồm xu hướng trung tâm, độ phân tán, và sự xuất hiện của các giá trị ngoại lệ.</p>
+<p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.boxplot(data=titanic,</span> <span class="pre">x='age')</span></code></p>
+<figure class="align-default" id="boxplot-bien-lien-tuc">
+<img alt="../_images/boxplot_bien_lien_tuc.png" src="../_images/boxplot_bien_lien_tuc.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">Phân tích đơn biến về tuổi của hành khách dao động như thế nào trong tập dữ liệu titanic.</span><a class="headerlink" href="#boxplot-bien-lien-tuc" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="phan-tich-bien-phan-loai-bien-lien-tuc">
+<h3>Phân tích biến phân loại – biến liên tục<a class="headerlink" href="#phan-tich-bien-phan-loai-bien-lien-tuc" title="Link to this heading"></a></h3>
+<p>Phân tích này liên quan đến việc xem xét mối quan hệ giữa một biến phân loại (categorical) và một biến liên tục. Trong Box Plot, chúng ta tạo ra nhiều hộp, mỗi hộp đại diện cho một nhóm của biến phân loại. Phân tích này cho phép chúng ta so sánh phân phối của biến liên tục giữa các nhóm khác nhau. Chúng ta có thể dễ dàng nhận ra sự khác biệt về trung vị, độ phân tán, và sự xuất hiện của các giá trị ngoại lệ giữa các nhóm.</p>
+<p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.boxplot(data=titanic,</span> <span class="pre">x='class',</span> <span class="pre">y='age')</span></code></p>
+<figure class="align-default" id="boxplot-bien-phan-loai-lien-tuc">
+<img alt="../_images/boxplot_bien_phan_loai_lien_tuc.png" src="../_images/boxplot_bien_phan_loai_lien_tuc.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Phân tích biến phân loại – biến liên tục: Sự phân bổ về độ tuổi giữa các hạng vé khác nhau như thế nào trong tập dữ liệu titanic.</span><a class="headerlink" href="#boxplot-bien-phan-loai-lien-tuc" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="violin-plot">
+<h2>Violin Plot<a class="headerlink" href="#violin-plot" title="Link to this heading"></a></h2>
+<p><strong>Violin Plot</strong> là sự kết hợp của Box Plot và Density Plot. Nó có hình dạng giống như một cây đàn violin, với phần rộng nhất thể hiện nơi dữ liệu tập trung nhiều nhất. Phần giữa của Violin Plot thường chứa một Box Plot thu nhỏ, cung cấp thông tin về các tứ phân vị và trung vị. Đường cong bên ngoài cho thấy phân phối dữ liệu, tương tự như Density Plot. <strong>Violin Plot</strong> đặc biệt hữu ích khi muốn hiểu sâu hơn về cấu trúc của dữ liệu, cho phép ta nhận ra các đặc điểm như tính đa phương thức (nhiều đỉnh) mà có thể bị bỏ qua trong Box Plot. Nó cũng giúp so sánh phân phối giữa nhiều nhóm dữ liệu một cách trực quan, cho thấy không chỉ các giá trị tóm tắt mà còn cả hình dạng tổng thể của phân phối.</p>
+<p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.violinplot(x='class',</span> <span class="pre">y='age',</span> <span class="pre">hue='sex',</span> <span class="pre">data=titanic)</span></code></p>
+<figure class="align-default" id="id1">
+<img alt="../_images/violin_plot.png" src="../_images/violin_plot.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 39 </span><span class="caption-text">Biểu đồ Violin thể hiện tuổi của hành khách phân phối như thế nào khi xét theo giới tính và hạng vé trong tập dữ liệu titanic.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="swarm-plot">
+<h2>Swarm Plot<a class="headerlink" href="#swarm-plot" title="Link to this heading"></a></h2>
+<p><strong>Swarm Plot</strong> là một biểu đồ thể hiện tất cả các điểm dữ liệu riêng lẻ mà không bị chồng chéo. Mỗi điểm trong <strong>Swarm Plot</strong> đại diện cho một quan sát trong tập dữ liệu. Các điểm được xếp dọc theo một trục (thường là trục y) và được “đẩy” sang ngang để tránh chồng lên nhau. Kết quả là một hình dạng giống như một đám ong, nơi phần rộng nhất cho biết nơi có nhiều điểm dữ liệu tập trung nhất. <strong>Swarm Plot</strong> rất hữu ích khi ta muốn thấy được phân phối thực tế của dữ liệu, đặc biệt khi số lượng điểm dữ liệu không quá lớn. Nó cho phép ta nhìn thấy mọi điểm dữ liệu, giúp phát hiện các mẫu hình, cụm, hoặc giá trị ngoại lệ mà có thể bị che giấu trong các loại biểu đồ khác. <strong>Swarm Plot</strong> cũng thường được kết hợp với các loại biểu đồ khác như Box Plot để cung cấp cái nhìn toàn diện hơn về dữ liệu.</p>
+<p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.swarmplot(x='class',</span> <span class="pre">y='fare',</span> <span class="pre">hue='survived',</span> <span class="pre">data=titanic)</span></code></p>
+<figure class="align-default" id="id2">
+<img alt="../_images/swarm_plot.png" src="../_images/swarm_plot.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Biểu đồ Swarm Plot trả lời cho câu hỏi: <i><b>Liệu hành khách mua vé giá cao hơn có khả năng sống sót cao hơn không?</b></i> trong tập dữ liệu titanic.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="strip-plot">
+<h2>Strip Plot<a class="headerlink" href="#strip-plot" title="Link to this heading"></a></h2>
+<p><strong>Strip Plot</strong> là một phiên bản đơn giản hơn của <strong>Swarm Plot</strong>. Nó hiển thị mỗi điểm dữ liệu như một dấu chấm riêng biệt, nhưng không cố gắng tránh sự chồng chéo giữa các điểm. Tất cả các điểm được đặt dọc theo một đường thẳng, thường là trục y. Vị trí của mỗi điểm trên trục này phản ánh giá trị của nó, trong khi vị trí ngang được chọn ngẫu nhiên trong một phạm vi nhất định. <strong>Strip Plot</strong> hữu ích khi ta muốn xem xét phân phối tổng thể của dữ liệu và nhận ra các giá trị cụ thể. Nó đặc biệt hiệu quả khi số lượng điểm dữ liệu không quá lớn và khi ta muốn so sánh phân phối giữa các nhóm khác nhau. Mặc dù đơn giản, <strong>Strip Plot</strong> vẫn cung cấp một cái nhìn trực quan về mật độ của dữ liệu ở các vùng khác nhau. Nó thường được kết hợp với các loại biểu đồ khác như Box Plot để cung cấp thêm thông tin chi tiết về phân phối dữ liệu.</p>
+<p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.stripplot(x='class',</span> <span class="pre">y='fare',</span> <span class="pre">hue='survived',</span> <span class="pre">data=titanic)</span></code></p>
+<figure class="align-default">
+<img alt="../_images/strip_plot.png" src="../_images/strip_plot.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Biểu đồ Strip Plot trả lời cho câu hỏi: <i><b>Liệu hành khách mua vé giá cao hơn có khả năng sống sót cao hơn không?</b></i> trong tập dữ liệu titanic.
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Các điểm dữ liệu trong cả biểu đồ Strip plot và Swam plot được giữ đúng như giá trị thật của nó (chứ không bị biến đối như Histogram hay Density).</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Buoi_2_Matplotlib_Seaborn"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Truc_quan_hoa_du_lieu_voi_Seaborn.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Trực quan hóa dữ liệu với Seaborn</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="cac_dang_bieu_do_the_hien_mqh_du_lieu.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Các dạng biểu đồ thể hiện mối quan hệ dữ liệu</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#density-plot">Density Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#box-plot">Box Plot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-tich-don-bien-bien-lien-tuc">Phân tích đơn biến (biến liên tục)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phan-tich-bien-phan-loai-bien-lien-tuc">Phân tích biến phân loại – biến liên tục</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#violin-plot">Violin Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swarm-plot">Swarm Plot</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strip-plot">Strip Plot</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Trung tâm Tin học - Đại học Khoa học Tự nhiên
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

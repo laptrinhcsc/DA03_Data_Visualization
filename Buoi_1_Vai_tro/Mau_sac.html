@@ -1,0 +1,592 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tầm quan trọng của màu sắc trong phân tích trực quan hóa dữ liệu &#8212; Data Visualization</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!-- 
+    this give us a css class that will be invisible only if js is disabled 
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Buoi_1_Vai_tro/Mau_sac';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Trực quan hóa dữ liệu với Python" href="../Matplotlib_Seaborn.html" />
+    <link rel="prev" title="Các loại biểu đồ thông dụng" href="Cac_bieu_do_thong_dung.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/matplotlib_seaborn.png" class="logo__image only-light" alt="Data Visualization - Home"/>
+    <img src="../_static/matplotlib_seaborn.png" class="logo__image only-dark pst-js-only" alt="Data Visualization - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Phân tích trực quan hóa dữ liệu
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../Vai_tro_cua_truc_quan_hoa_du_lieu.html">Vai trò của trực quan hóa dữ liệu</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Tong_quan.html">Tại sao phải trực quan hóa dữ liệu?</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="Cac_nguyen_tac_quan_trong.html">Các nguyên tắc quan trọng trong Phân tích Trực quan hóa Dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Cac_bieu_do_thong_dung.html">Các loại biểu đồ thông dụng</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tầm quan trọng của màu sắc trong phân tích trực quan hóa dữ liệu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Matplotlib_Seaborn.html">Trực quan hóa dữ liệu với Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Buoi_2_Matplotlib_Seaborn/Phan_loai_du_lieu.html">Phân loại dữ liệu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Buoi_2_Matplotlib_Seaborn/Cac_thanh_phan_trong_bieu_do.html">Các thành phần trong biểu đồ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Buoi_2_Matplotlib_Seaborn/Cac_thu_vien_truc_quan_hoa_du_lieu.html">Các thư viện trực quan hóa dữ liệu</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Buoi_2_Matplotlib_Seaborn/Truc_quan_hoa_du_lieu_voi_Seaborn.html">Trực quan hóa dữ liệu với Seaborn</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Buoi_2_Matplotlib_Seaborn/cac_dang_bieu_do_phan_phoi_du_lieu.html">Các dạng biểu đồ phân phối dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Buoi_2_Matplotlib_Seaborn/cac_dang_bieu_do_the_hien_mqh_du_lieu.html">Các dạng biểu đồ thể hiện mối quan hệ dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Buoi_2_Matplotlib_Seaborn/cac_dang_bieu_do_the_hien_thong_ke_du_lieu.html">Các dạng biểu đồ thể hiện thống kê dữ liệu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Buoi_2_Matplotlib_Seaborn/dang_bieu_do_the_hien_xu_huong_du_lieu.html">Dạng biểu đồ thể hiện xu hướng dữ liệu</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../Buoi_2_Matplotlib_Seaborn/Truc_quan_da_bien_voi_luoi.html">Trực quan đa biến với lưới</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FBuoi_1_Vai_tro/Mau_sac.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Buoi_1_Vai_tro/Mau_sac.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Tầm quan trọng của màu sắc trong phân tích trực quan hóa dữ liệu</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-color">Sequential Color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diverging-color">Diverging Color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-color">Categorical Color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#highlight-color">Highlight Color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alerting-color">Alerting Color</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="tam-quan-trong-cua-mau-sac-trong-phan-tich-truc-quan-hoa-du-lieu">
+<h1>Tầm quan trọng của màu sắc trong phân tích trực quan hóa dữ liệu<a class="headerlink" href="#tam-quan-trong-cua-mau-sac-trong-phan-tich-truc-quan-hoa-du-lieu" title="Link to this heading"></a></h1>
+<p>Trong lĩnh vực phân tích và trực quan hóa dữ liệu, màu sắc đóng vai trò then chốt, vượt xa khỏi chức năng thuần túy thẩm mỹ. Màu sắc trở thành một công cụ truyền thông mạnh mẽ, có khả năng mã hóa thông tin phức tạp, có thể tạo ra góc nhìn phân cấp qua thị giác và thúc đẩy tương tác người dùng một cách hiệu quả. Việc áp dụng lý thuyết màu sắc và tâm lý nhận thức vào thiết kế trực quan hóa dữ liệu có thể nâng cao đáng kể khả năng tiếp nhận và xử lý thông tin của người xem.</p>
+<p>Về mặt sinh lý học, màu sắc kích thích các tế bào nón trong võng mạc, tạo ra phản ứng thần kinh nhanh chóng và mạnh mẽ. Điều này giải thích tại sao các biểu đồ và đồ thị sử dụng bảng màu được thiết kế cẩn thận có thể thu hút sự chú ý ngay lập tức và duy trì sự tập trung của người xem. Ví dụ, trong một biểu đồ nhiệt, việc sử dụng gradient màu từ lạnh đến nóng (như xanh dương đến đỏ) có thể nhanh chóng truyền đạt mức độ cường độ của dữ liệu mà không cần đến chú thích phức tạp.</p>
+<figure class="align-default" id="mau-sac-trong-truc-quan">
+<img alt="../_images/mau_sac_trong_truc_quan.png" src="../_images/mau_sac_trong_truc_quan.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Biểu đồ nhiệt (heatmap) minh họa cho việc sử dụng gradient màu từ xanh dương (lạnh) đến đỏ (nóng). Biểu đồ này giúp truyền tải mức độ cường độ của dữ liệu một cách trực quan, không cần chú thích phức tạp.</span><a class="headerlink" href="#mau-sac-trong-truc-quan" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Hơn nữa, màu sắc còn đóng vai trò quan trọng trong việc tạo ra hệ thống phân cấp thông tin và hướng dẫn người xem qua các lớp dữ liệu phức tạp. Bằng cách sử dụng các nguyên tắc như tương phản màu sắc, độ bão hòa, và độ sáng, nhà phân tích dữ liệu có thể tạo ra sự phân biệt rõ ràng giữa các nhóm dữ liệu, làm nổi bật xu hướng quan trọng, và điều hướng sự chú ý của người xem đến những thông tin then chốt…. Tuy nhiên, việc sử dụng màu sắc trong trực quan hóa dữ liệu đòi hỏi sự cân nhắc kỹ lưỡng về các yếu tố như khả năng tiếp cận (accessibility), truyền thống, văn hóa, bối cảnh. Ngoài ra, khi trực quan hóa dữ liệu cũng cần lưu ý đến việc chọn bảng màu phù hợp cho những đối tượng mù màu và cũng phải tuân theo quy định trong những trường hợp đặc biệt.</p>
+<figure class="align-default" id="overview-color">
+<img alt="../_images/overview_color.png" src="../_images/overview_color.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Tầm quan trọng của việc biểu diễn màu sắc trong phân tích trực quan hóa dữ liệu (Nguồn: The Big Book of Dashboards).</span><a class="headerlink" href="#overview-color" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<section id="sequential-color">
+<h2>Sequential Color<a class="headerlink" href="#sequential-color" title="Link to this heading"></a></h2>
+<p><strong>Sequential Color</strong> (màu sắc tuần tự) trong trực quan hóa dữ liệu là một công cụ mạnh mẽ giúp biến đổi thông tin số thành hình ảnh trực quan dễ hiểu. Bằng cách sử dụng sự chuyển đổi màu sắc từ nhạt đến đậm hoặc từ sáng đến tối, bảng màu này cho phép người xem nhanh chóng nắm bắt được xu hướng và mức độ của dữ liệu định lượng. Sự biến đổi màu sắc liên tục này không chỉ giúp truyền tải thông tin một cách hiệu quả mà còn tạo ra một trải nghiệm thị giác hấp dẫn, giúp người xem dễ dàng nhận biết sự tăng giảm của dữ liệu mà không cần đọc từng con số cụ thể. Đây là một kỹ thuật quan trọng trong việc làm cho dữ liệu phức tạp trở nên dễ tiếp cận và hiểu được đối với mọi đối tượng người xem.</p>
+<figure class="align-default" id="id1">
+<img alt="../_images/sequential_color.png" src="../_images/sequential_color.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Tỉ lệ thất nghiệp theo các tiểu bang (Nguồn: The Big Book of Dashboards).</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="diverging-color">
+<h2>Diverging Color<a class="headerlink" href="#diverging-color" title="Link to this heading"></a></h2>
+<p><strong>Diverging Color</strong> - hay còn gọi là màu sắc phân kỳ - là một công cụ trực quan hóa dữ liệu được thiết kế đặc biệt để biểu thị thông tin có điểm trung tâm hoặc giá trị tham chiếu. Bằng cách sử dụng sự chuyển đổi màu sắc từ một sắc thái này sang một sắc thái khác thông qua một màu trung gian, bảng màu này cho phép người xem nhanh chóng nhận biết sự phân bố và mức độ khác biệt của dữ liệu so với điểm tham chiếu. Đây là một phương pháp hiệu quả để truyền tải các khái niệm về sự tương phản, đối lập hoặc độ lệch trong dữ liệu, giúp người xem dễ dàng nắm bắt được những thông tin quan trọng và xu hướng trong tập dữ liệu phức tạp mà không cần phải đi sâu vào từng con số cụ thể.</p>
+<figure class="align-default" id="id2">
+<img alt="../_images/diverging_color.png" src="../_images/diverging_color.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Tổng lợi nhuận theo từng bang (Nguồn: The Big Book of Dashboards).</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="categorical-color">
+<h2>Categorical Color<a class="headerlink" href="#categorical-color" title="Link to this heading"></a></h2>
+<p><strong>Categorical Color</strong> (màu sắc phân loại) là một kỹ thuật quan trọng trong trực quan hóa dữ liệu, được sử dụng để phân biệt các nhóm hoặc danh mục dữ liệu không có thứ tự cụ thể. Bằng cách áp dụng các màu sắc khác biệt rõ rệt cho từng nhóm, phương pháp này giúp người xem nhanh chóng nhận diện và phân biệt các loại dữ liệu khác nhau trong một biểu đồ hoặc đồ thị. Việc lựa chọn màu sắc cần được cân nhắc kỹ lưỡng để đảm bảo sự tương phản và dễ nhìn, đồng thời tránh gây nhầm lẫn hoặc khó khăn cho người có vấn đề về thị giác. Sử dụng màu sắc phân loại hiệu quả không chỉ làm tăng tính thẩm mỹ của trực quan hóa mà còn cải thiện đáng kể khả năng truyền đạt thông tin, giúp người xem dễ dàng nắm bắt và ghi nhớ các thông điệp quan trọng từ dữ liệu.</p>
+<figure class="align-default" id="id3">
+<img alt="../_images/categorical_color.png" src="../_images/categorical_color.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Số lượng bán ra của từng loại sản phẩm (Nguồn: The Big Book of Dashboards).</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="highlight-color">
+<h2>Highlight Color<a class="headerlink" href="#highlight-color" title="Link to this heading"></a></h2>
+<p><strong>Highlight Color</strong> (màu sắc nhấn mạnh) được sử dụng để thu hút sự chú ý của người xem đến những thông tin quan trọng nhất. Bằng cách sử dụng màu sắc có độ tương phản cao so với màu nền hoặc các phần tử xung quanh, kỹ thuật này giúp làm nổi bật các điểm dữ liệu, xu hướng hoặc thông tin cụ thể mà người tạo biểu đồ muốn nhấn mạnh. Việc sử dụng màu sắc nhấn mạnh một cách chiến lược không chỉ giúp định hướng sự chú ý của người xem mà còn tăng cường khả năng truyền đạt thông điệp chính của dữ liệu. Tuy nhiên, cần sử dụng kỹ thuật này một cách cân nhắc để tránh gây rối mắt hoặc làm mất đi tính toàn vẹn của toàn bộ trực quan hóa.</p>
+<figure class="align-default" id="id4">
+<img alt="../_images/highlight_color.png" src="../_images/highlight_color.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Làm nổi bật khả năng chi tiêu về du lịch của người Anh thấp hơn so với châu Âu (Nguồn: Gary Collins).</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="alerting-color">
+<h2>Alerting Color<a class="headerlink" href="#alerting-color" title="Link to this heading"></a></h2>
+<p><strong>Alerting Color</strong> (màu sắc cảnh báo) thu hút sự chú ý đến những thông tin cần được xử lý ngay lập tức. Bằng cách sử dụng các màu sắc mạnh mẽ và có tác động tâm lý như đỏ hoặc cam, kỹ thuật này giúp người xem ngay lập tức nhận biết được các tình huống bất thường, lỗi hoặc vấn đề cần được giải quyết gấp. Việc lựa chọn và sử dụng màu sắc cảnh báo cần được cân nhắc kỹ lưỡng để đảm bảo hiệu quả mà không gây ra sự lo lắng không cần thiết hoặc làm giảm tác dụng của cảnh báo do sử dụng quá mức. Khi được áp dụng đúng cách, màu sắc cảnh báo có thể cải thiện đáng kể khả năng phản ứng nhanh và ra quyết định kịp thời dựa trên dữ liệu.</p>
+<figure class="align-default" id="id5">
+<img alt="../_images/alerting_color.png" src="../_images/alerting_color.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Màu sắc cảnh báo thường là các màu sắc mạnh mẽ và có liên kết tâm lý với sự cảnh báo, như đỏ hoặc cam (Nguồn: The Big Book of Dashboards).</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Việc hiểu rõ về các loại màu sắc, tâm lý màu sắc, và cách áp dụng chúng một cách chiến lược trong trực quan hóa dữ liệu là kỹ năng thiết yếu đối với bất kỳ ai làm việc với dữ liệu. Việc nắm vững kiến thức này không chỉ giúp tạo ra các biểu đồ đẹp mắt mà còn đảm bảo thông tin được truyền tải một cách chính xác, dễ hiểu và có tác động mạnh mẽ.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Buoi_1_Vai_tro"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Cac_bieu_do_thong_dung.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Các loại biểu đồ thông dụng</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Matplotlib_Seaborn.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Trực quan hóa dữ liệu với Python</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sequential-color">Sequential Color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diverging-color">Diverging Color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-color">Categorical Color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#highlight-color">Highlight Color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alerting-color">Alerting Color</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Trung tâm Tin học - Đại học Khoa học Tự nhiên
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
