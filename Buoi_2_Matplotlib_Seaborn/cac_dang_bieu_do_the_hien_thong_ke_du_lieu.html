@@ -379,7 +379,6 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bar-plot">Bar Plot</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#count-plot">Count Plot</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pie-chart">Pie Chart</a></li>
-
 </ul>
             </nav>
         </div>
@@ -392,45 +391,44 @@
                 <article class="bd-article">
                   
   <section id="cac-dang-bieu-do-the-hien-thong-ke-du-lieu">
-<h1>Các dạng biểu đồ thể hiện thống kê dữ liệu<a class="headerlink" href="#cac-dang-bieu-do-the-hien-thong-ke-du-lieu" title="Link to this heading"></a></h1>
+<h1>Các dạng biểu đồ thể hiện thống kê dữ liệu<a class="headerlink" href="#cac-dang-bieu-do-the-hien-thong-ke-du-lieu" title="Link to this heading">#</a></h1>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.&lt;ten</span> <span class="pre">bieu</span> <span class="pre">do&gt;(data</span> <span class="pre">=</span> <span class="pre">dataframe,</span> <span class="pre">x=</span> <span class="pre">&lt;column_name&gt;,</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">&lt;column_name&gt;,…)</span></code></p>
 <p>Các dạng biểu đồ thể hiện thống kê dữ liệu đóng vai trò quan trọng trong việc truyền tải thông tin một cách trực quan và dễ hiểu. Chúng giúp người xem nhanh chóng nắm bắt được những đặc điểm chính của dữ liệu, như sự phân bố, tần suất xuất hiện, hoặc so sánh giữa các nhóm khác nhau. Biểu đồ thống kê không chỉ làm cho dữ liệu trở nên dễ tiếp cận hơn mà còn giúp phát hiện các mẫu hình và xu hướng mà có thể khó nhận ra khi chỉ nhìn vào các bảng số liệu. Chúng là công cụ không thể thiếu trong quá trình phân tích dữ liệu, hỗ trợ việc ra quyết định dựa trên dữ liệu và truyền đạt kết quả nghiên cứu một cách hiệu quả.</p>
 <section id="bar-plot">
-<h2>Bar Plot<a class="headerlink" href="#bar-plot" title="Link to this heading"></a></h2>
-<p><strong>Bar Plot</strong>, hay biểu đồ cột, là một trong những dạng biểu đồ phổ biến và dễ hiểu nhất để thể hiện thống kê dữ liệu. Nó sử dụng các cột hình chữ nhật để biểu diễn giá trị của dữ liệu, với chiều cao của mỗi cột tương ứng với giá trị đó. <strong>Bar Plot</strong> thường được sử dụng để so sánh giá trị giữa các nhóm khác nhau hoặc để hiển thị sự thay đổi của một biến số theo thời gian. Trục ngang (x) thường biểu diễn các danh mục hoặc nhóm, trong khi trục dọc (y) thể hiện giá trị số. <strong>Bar Plot</strong> có thể được vẽ theo chiều dọc hoặc chiều ngang, tùy thuộc vào mục đích và không gian hiển thị. Một ưu điểm lớn của <strong>Bar Plot</strong> là khả năng hiển thị rõ ràng sự khác biệt về độ lớn giữa các giá trị, giúp người xem dễ dàng so sánh và đánh giá. Ngoài ra, <strong>Bar Plot</strong> cũng có thể được sử dụng để hiển thị nhiều nhóm dữ liệu cùng lúc thông qua việc sử dụng các cột được nhóm hoặc xếp chồng.</p>
+<h2>Bar Plot<a class="headerlink" href="#bar-plot" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Bar</span> <span class="pre">Plot</span></code>, hay biểu đồ cột, là một trong những dạng biểu đồ phổ biến và dễ hiểu nhất để thể hiện thống kê dữ liệu. Nó sử dụng các cột hình chữ nhật để biểu diễn giá trị của dữ liệu, với chiều cao của mỗi cột tương ứng với giá trị đó. <code class="docutils literal notranslate"><span class="pre">Bar</span> <span class="pre">Plot</span></code> thường được sử dụng để so sánh giá trị giữa các nhóm khác nhau hoặc để hiển thị sự thay đổi của một biến số theo thời gian. Trục ngang (x) thường biểu diễn các danh mục hoặc nhóm, trong khi trục dọc (y) thể hiện giá trị số. <code class="docutils literal notranslate"><span class="pre">Bar</span> <span class="pre">Plot</span></code> có thể được vẽ theo chiều dọc hoặc chiều ngang, tùy thuộc vào mục đích và không gian hiển thị. Một ưu điểm lớn của <code class="docutils literal notranslate"><span class="pre">Bar</span> <span class="pre">Plot</span></code> là khả năng hiển thị rõ ràng sự khác biệt về độ lớn giữa các giá trị, giúp người xem dễ dàng so sánh và đánh giá. Ngoài ra, <code class="docutils literal notranslate"><span class="pre">Bar</span> <span class="pre">Plot</span></code> cũng có thể được sử dụng để hiển thị nhiều nhóm dữ liệu cùng lúc thông qua việc sử dụng các cột được nhóm hoặc xếp chồng.</p>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.barplot(data=tip,</span> <span class="pre">x=&quot;day&quot;,</span> <span class="pre">y=&quot;total_bill&quot;,</span> <span class="pre">errorbar=None)</span></code></p>
 <figure class="align-default">
 <img alt="../_images/bar_plot_1.png" src="../_images/bar_plot_1.png" />
 </figure>
-<p>Ở biểu đồ <strong>Bar Plot</strong> có một thuộc tính là <b>estimator</b>, thuộc tính này mặc định sẽ tính giá trị trung bình (mean) trên bộ dữ liệu. Chúng ta có thể thay đổi <b>estimator</b> thành các hàm khác như <em>median() (trung vị), sum() (tổng), max() (giá trị lớn nhất), min() (giá trị nhỏ nhất)</em>, hoặc bất kỳ hàm tùy chỉnh nào.</p>
+<p>Ở biểu đồ <code class="docutils literal notranslate"><span class="pre">Bar</span> <span class="pre">Plot</span></code> có một thuộc tính là <b>estimator</b>, thuộc tính này mặc định sẽ tính giá trị trung bình (mean) trên bộ dữ liệu. Chúng ta có thể thay đổi <b>estimator</b> thành các hàm khác như <em>median() (trung vị), sum() (tổng), max() (giá trị lớn nhất), min() (giá trị nhỏ nhất)</em>, hoặc bất kỳ hàm tùy chỉnh nào.</p>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.barplot(data=tip,</span> <span class="pre">x=&quot;day&quot;,</span> <span class="pre">y=&quot;total_bill&quot;,</span> <span class="pre">errorbar=None,</span> <span class="pre">estimator=</span> <span class="pre">&quot;sum&quot;)</span></code></p>
 <figure class="align-default">
 <img alt="../_images/bar_plot_1_sum.png" src="../_images/bar_plot_1_sum.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Biểu đồ Bar Plot thể hiện giá trị tổng hóa đơn trung bình theo ngày.
-</figcaption>
 </figure>
 </section>
 <section id="count-plot">
-<h2>Count Plot<a class="headerlink" href="#count-plot" title="Link to this heading"></a></h2>
-<p><strong>Count Plot</strong> là một biến thể đặc biệt của Bar Plot, được sử dụng để hiển thị số lượng quan sát trong mỗi danh mục của một biến phân loại. Nó tự động đếm số lượng mục trong mỗi nhóm và hiển thị kết quả dưới dạng các cột. Trục x thường biểu diễn các danh mục của biến phân loại, trong khi trục y thể hiện số lượng quan sát. <strong>Count Plot</strong> đặc biệt hữu ích khi bạn muốn nhanh chóng hiểu được phân phối của một biến phân loại trong tập dữ liệu của mình. Nó cho phép bạn dễ dàng nhận ra những danh mục xuất hiện nhiều nhất và ít nhất. <strong>Count Plot</strong> cũng có thể được sử dụng để so sánh phân phối của một biến phân loại giữa các nhóm khác nhau bằng cách sử dụng màu sắc hoặc chia nhỏ các cột. Một lợi ích lớn của Count Plot là nó tự động tính toán và hiển thị số lượng, giúp tiết kiệm thời gian và giảm khả năng sai sót khi phải đếm thủ công.</p>
+<h2>Count Plot<a class="headerlink" href="#count-plot" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Count</span> <span class="pre">Plot</span></code> là một biến thể đặc biệt của Bar Plot, được sử dụng để hiển thị số lượng quan sát trong mỗi danh mục của một biến phân loại. Nó tự động đếm số lượng mục trong mỗi nhóm và hiển thị kết quả dưới dạng các cột. Trục x thường biểu diễn các danh mục của biến phân loại, trong khi trục y thể hiện số lượng quan sát. <code class="docutils literal notranslate"><span class="pre">Count</span> <span class="pre">Plot</span></code> đặc biệt hữu ích khi bạn muốn nhanh chóng hiểu được phân phối của một biến phân loại trong tập dữ liệu của mình. Nó cho phép bạn dễ dàng nhận ra những danh mục xuất hiện nhiều nhất và ít nhất. <code class="docutils literal notranslate"><span class="pre">Count</span> <span class="pre">Plot</span></code> cũng có thể được sử dụng để so sánh phân phối của một biến phân loại giữa các nhóm khác nhau bằng cách sử dụng màu sắc hoặc chia nhỏ các cột. Một lợi ích lớn của Count Plot là nó tự động tính toán và hiển thị số lượng, giúp tiết kiệm thời gian và giảm khả năng sai sót khi phải đếm thủ công.</p>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.countplot(data=titanic,</span> <span class="pre">x='survived',</span> <span class="pre">hue='survived')</span></code></p>
 <figure class="align-default">
 <img alt="../_images/count_plot.png" src="../_images/count_plot.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 46 </span><span class="caption-text">Thống kê số lượng hành khách còn sống và qua đời bằng biểu đồ Count Plot.
-</figcaption>
 </figure>
 </section>
 <section id="pie-chart">
-<h2>Pie Chart<a class="headerlink" href="#pie-chart" title="Link to this heading"></a></h2>
-<p><strong>Pie Chart</strong> (biểu đồ tròn) là một loại biểu đồ được thiết kế dưới dạng hình tròn, chia thành các phần tương tự như những lát cắt của một chiếc bánh. Mỗi phần đại diện cho tỷ lệ hoặc phần trăm của một thành phần so với tổng thể. <strong>Pie Chart</strong> giúp người xem dễ dàng hiểu được cách các thành phần trong một tập dữ liệu được phân chia và so sánh tỷ lệ của chúng một cách trực quan.</p>
+<h2>Pie Chart<a class="headerlink" href="#pie-chart" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Pie</span> <span class="pre">Chart</span></code> (biểu đồ tròn) là một loại biểu đồ được thiết kế dưới dạng hình tròn, chia thành các phần tương tự như những lát cắt của một chiếc bánh. Mỗi phần đại diện cho tỷ lệ hoặc phần trăm của một thành phần so với tổng thể. <code class="docutils literal notranslate"><span class="pre">Pie</span> <span class="pre">Chart</span></code> giúp người xem dễ dàng hiểu được cách các thành phần trong một tập dữ liệu được phân chia và so sánh tỷ lệ của chúng một cách trực quan.</p>
 <figure class="align-default">
 <img alt="../_images/pie_chart_Apple.png" src="../_images/pie_chart_Apple.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 47 </span><span class="caption-text">Cơ cấu doanh thu theo các dòng sản phẩm của Apple trong quý 4 niên độ tài chính năm 2023 (Nguồn: MacRumors).
-</figcaption>
 </figure>
+<!-- ## Donut Chart
+`Donut Chart` là một dạng biến thể của Pie Chart (biểu đồ tròn), với đặc điểm là phần trung tâm bị rỗng, tạo thành hình dạng giống chiếc bánh donut. `Donut Chart` được sử dụng để biểu diễn tỷ lệ hoặc phần trăm của các thành phần trong tổng thể, tương tự Pie Chart, nhưng khác biệt về thiết kế hình học, mang lại cảm giác hiện đại và thẩm mỹ hơn. Phần trống ở giữa biểu đồ có thể được tận dụng để chèn tiêu đề, số liệu tổng hợp hoặc các thông tin bổ sung, giúp tăng tính trực quan và hấp dẫn mà không làm cho biểu đồ trở nên phức tạp.
+```{figure} ../img/donut_chart.png
+name: donut_chart
+---
+Cơ cấu doanh thu theo các dòng sản phẩm của Apple trong quý 4 niên độ tài chính năm 2023 (Nguồn: MacRumors) (thể hiện bằng biểu đồ Donut Chart).
+``` -->
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -525,7 +523,7 @@ By Trung tâm Tin học - Đại học Khoa học Tự nhiên
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2023.
       <br/>
     
   </p>

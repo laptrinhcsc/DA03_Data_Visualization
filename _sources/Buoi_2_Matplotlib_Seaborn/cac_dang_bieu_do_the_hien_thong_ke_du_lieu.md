@@ -40,12 +40,12 @@ name: pie_chart_Apple
 Cơ cấu doanh thu theo các dòng sản phẩm của Apple trong quý 4 niên độ tài chính năm 2023 (Nguồn: MacRumors) (thể hiện bằng biểu đồ Pie Chart).
 ```
 
-## Donut Chart
+<!-- ## Donut Chart
 `Donut Chart` là một dạng biến thể của Pie Chart (biểu đồ tròn), với đặc điểm là phần trung tâm bị rỗng, tạo thành hình dạng giống chiếc bánh donut. `Donut Chart` được sử dụng để biểu diễn tỷ lệ hoặc phần trăm của các thành phần trong tổng thể, tương tự Pie Chart, nhưng khác biệt về thiết kế hình học, mang lại cảm giác hiện đại và thẩm mỹ hơn. Phần trống ở giữa biểu đồ có thể được tận dụng để chèn tiêu đề, số liệu tổng hợp hoặc các thông tin bổ sung, giúp tăng tính trực quan và hấp dẫn mà không làm cho biểu đồ trở nên phức tạp.
 ```{figure} ../img/donut_chart.png
 name: donut_chart
 ---
 Cơ cấu doanh thu theo các dòng sản phẩm của Apple trong quý 4 niên độ tài chính năm 2023 (Nguồn: MacRumors) (thể hiện bằng biểu đồ Donut Chart).
-```
+``` -->
 
 

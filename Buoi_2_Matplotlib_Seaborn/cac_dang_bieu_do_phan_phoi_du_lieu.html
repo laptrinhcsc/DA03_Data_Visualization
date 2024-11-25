@@ -397,112 +397,109 @@
                 <article class="bd-article">
                   
   <section id="cac-dang-bieu-do-phan-phoi-du-lieu">
-<h1>Các dạng biểu đồ phân phối dữ liệu<a class="headerlink" href="#cac-dang-bieu-do-phan-phoi-du-lieu" title="Link to this heading"></a></h1>
+<h1>Các dạng biểu đồ phân phối dữ liệu<a class="headerlink" href="#cac-dang-bieu-do-phan-phoi-du-lieu" title="Link to this heading">#</a></h1>
 <p><strong>Cú pháp chung</strong>: <code class="docutils literal notranslate"><span class="pre">sns.&lt;ten</span> <span class="pre">bieu</span> <span class="pre">do&gt;(data</span> <span class="pre">=</span> <span class="pre">dataframe,</span> <span class="pre">x=</span> <span class="pre">&lt;column_name&gt;,</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">&lt;column_name&gt;,…)</span></code></p>
 <p>Các dạng biểu đồ thể hiện phân phối dữ liệu đóng vai trò quan trọng trong việc hiểu và phân tích dữ liệu. Chúng giúp chúng ta nhanh chóng nắm bắt được đặc điểm tổng quát của một tập dữ liệu, như xu hướng trung tâm, sự phân tán, và hình dạng của phân phối. Những biểu đồ này không chỉ giúp chúng ta đưa ra những nhận định chính xác mà còn hỗ trợ trong việc truyền đạt thông tin một cách trực quan và dễ hiểu đến người xem. Việc sử dụng đúng loại biểu đồ có thể làm nổi bật những đặc điểm quan trọng của dữ liệu, giúp đưa ra quyết định dựa trên dữ liệu một cách hiệu quả hơn.</p>
 <section id="density-plot">
-<h2>Density Plot<a class="headerlink" href="#density-plot" title="Link to this heading"></a></h2>
-<p><strong>Biểu đồ mật độ</strong> (Density Plot) là một biểu đồ thể hiện phân phối dữ liệu dưới dạng đường cong liên tục. Nó cho ta thấy xác suất xuất hiện của các giá trị trong tập dữ liệu. Phần cao nhất của đường cong chỉ ra giá trị xuất hiện nhiều nhất, trong khi độ rộng của đường cong cho biết mức độ phân tán của dữ liệu. <code class="docutils literal notranslate"><span class="pre">Density</span> <span class="pre">Plot</span></code> hữu ích trong việc nhận biết hình dạng tổng thể của phân phối dữ liệu, cho phép ta dễ dàng xác định xem phân phối có đối xứng hay lệch về một bên. Biểu đồ Density sẽ thể hiện bằng các dạng biểu đồ lệch phải (hay còn gọi là Right – Skew, Positive – Skew), đối xứng (hay còn gọi là đồ thị hình chuông – Bell curved), lệch trái (hay còn gọi là Left – skew, Negative Skew) thông qua các giá trị thống kê Mean, Median, Mode. Nó cũng giúp phát hiện các đỉnh trong dữ liệu, chỉ ra có thể có nhiều nhóm con trong tập dữ liệu. Biểu đồ này đặc biệt hữu ích khi so sánh phân phối của nhiều nhóm dữ liệu khác nhau, vì các đường cong có thể được vẽ chồng lên nhau mà vẫn dễ nhìn.</p>
+<h2>Density Plot<a class="headerlink" href="#density-plot" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Biểu</span> <span class="pre">đồ</span> <span class="pre">mật</span> <span class="pre">độ</span> <span class="pre">(Density</span> <span class="pre">Plot)</span></code> là một biểu đồ thể hiện phân phối dữ liệu dưới dạng đường cong liên tục. Nó cho ta thấy xác suất xuất hiện của các giá trị trong tập dữ liệu. Phần cao nhất của đường cong chỉ ra giá trị xuất hiện nhiều nhất, trong khi độ rộng của đường cong cho biết mức độ phân tán của dữ liệu. <code class="docutils literal notranslate"><span class="pre">Density</span> <span class="pre">Plot</span></code> hữu ích trong việc nhận biết hình dạng tổng thể của phân phối dữ liệu, cho phép ta dễ dàng xác định xem phân phối có đối xứng hay lệch về một bên. Biểu đồ Density sẽ thể hiện bằng các dạng biểu đồ lệch phải (hay còn gọi là Right – Skew, Positive – Skew), đối xứng (hay còn gọi là đồ thị hình chuông – Bell curved), lệch trái (hay còn gọi là Left – skew, Negative Skew) thông qua các giá trị thống kê Mean, Median, Mode. Nó cũng giúp phát hiện các đỉnh trong dữ liệu, chỉ ra có thể có nhiều nhóm con trong tập dữ liệu. Biểu đồ này đặc biệt hữu ích khi so sánh phân phối của nhiều nhóm dữ liệu khác nhau, vì các đường cong có thể được vẽ chồng lên nhau mà vẫn dễ nhìn.</p>
 <figure class="align-default" id="density-skew">
 <img alt="../_images/density_skew.png" src="../_images/density_skew.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Density là biểu đồ thể hiện phân phối mật độ xác suất tương tự như Histogram, nhưng thay vì là hình các cột bar như Histogram thì Density thể hiện đường phân phối KDE để thể hiện mật độ xác suất.</span><a class="headerlink" href="#density-skew" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Density là biểu đồ thể hiện phân phối mật độ xác suất tương tự như Histogram, nhưng thay vì là hình các cột bar như Histogram thì Density thể hiện đường phân phối KDE để thể hiện mật độ xác suất.</span><a class="headerlink" href="#density-skew" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.displot(data</span> <span class="pre">=</span> <span class="pre">titanic,</span> <span class="pre">x=</span> <span class="pre">&quot;age&quot;)</span></code></p>
 <figure class="align-default" id="histogram-density">
 <img alt="../_images/histogram_density.png" src="../_images/histogram_density.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Density Plot không khác gì Histogram cả, cũng là biểu đồ cột bar và đếm tần suất xảy ra của các giá trị.</span><a class="headerlink" href="#histogram-density" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Density Plot không khác gì Histogram cả, cũng là biểu đồ cột bar và đếm tần suất xảy ra của các giá trị.</span><a class="headerlink" href="#histogram-density" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.displot(data</span> <span class="pre">=</span> <span class="pre">titanic,</span> <span class="pre">x=</span> <span class="pre">&quot;age&quot;,</span> <span class="pre">kind=</span> <span class="pre">&quot;kde&quot;)</span></code></p>
 <figure class="align-default" id="kde-density">
 <img alt="../_images/kde_density.png" src="../_images/kde_density.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Khi thêm thuộc tính <code class="docutils literal notranslate"><span class="pre">kind=</span> <span class="pre">kde</span></code>, lúc này từ các cột bar sẽ chuyển thành các đường phân phối kde và trục y lúc này không còn là count nữa, mà thể hiện giá trị của hàm mật độ phân phối.</span><a class="headerlink" href="#kde-density" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">Khi thêm thuộc tính <code class="docutils literal notranslate"><span class="pre">kind=</span> <span class="pre">kde</span></code>, lúc này từ các cột bar sẽ chuyển thành các đường phân phối kde và trục y lúc này không còn là count nữa, mà thể hiện giá trị của hàm mật độ phân phối.</span><a class="headerlink" href="#kde-density" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.displot(data=titanic,</span> <span class="pre">x='age',</span> <span class="pre">kind='kde',</span> <span class="pre">hue</span> <span class="pre">=</span> <span class="pre">'survived')</span></code></p>
 <figure class="align-default" id="density-hue">
 <img alt="../_images/density_hue.png" src="../_images/density_hue.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Lúc này biểu đồ sẽ tách phân phối của <strong>người sống sót</strong> riêng và <strong>người không sống sót</strong> riêng chỉ bằng một tham số duy nhất là <code class="docutils literal notranslate"><span class="pre">hue</span></code>.</span><a class="headerlink" href="#density-hue" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Lúc này biểu đồ sẽ tách phân phối của <strong>người sống sót</strong> riêng và <strong>người không sống sót</strong> riêng chỉ bằng một tham số duy nhất là <code class="docutils literal notranslate"><span class="pre">hue</span></code>.</span><a class="headerlink" href="#density-hue" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.kdeplot(data=titanic,</span> <span class="pre">x='age',</span> <span class="pre">hue='survived',</span> <span class="pre">fill=True)</span></code></p>
 <figure class="align-default" id="kde-plot">
 <img alt="../_images/kde_plot.png" src="../_images/kde_plot.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Chúng ta có thể biểu diễn biểu đồ Density Plot bằng <code class="docutils literal notranslate"><span class="pre">kde</span> <span class="pre">plot</span></code>.</span><a class="headerlink" href="#kde-plot" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Chúng ta có thể biểu diễn biểu đồ Density Plot bằng <code class="docutils literal notranslate"><span class="pre">kde</span> <span class="pre">plot</span></code>.</span><a class="headerlink" href="#kde-plot" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="box-plot">
 <h2>Box Plot<a class="headerlink" href="#box-plot" title="Link to this heading">#</a></h2>
-<p><strong>Box Plot</strong>, hay còn gọi là biểu đồ hộp, là một cách hiệu quả để tóm tắt phân phối dữ liệu. Nó hiển thị năm số tóm tắt quan trọng: giá trị nhỏ nhất, tứ phân vị thứ nhất, trung vị, tứ phân vị thứ ba, và giá trị lớn nhất. Hộp chính giữa đại diện cho 50% dữ liệu ở giữa, với đường ngang trong hộp là trung vị. Các điểm nằm ngoài giá trị nhỏ nhất và giá trị lớn nhất được coi là các giá trị ngoại lệ và được biểu diễn riêng lẻ. <strong>Box Plot</strong> rất hữu ích trong việc so sánh phân phối giữa nhiều nhóm dữ liệu, cho phép ta dễ dàng nhận ra sự khác biệt về trung tâm, độ phân tán và sự xuất hiện của các giá trị ngoại lệ. Nó cũng giúp phát hiện nhanh chóng sự bất đối xứng trong phân phối dữ liệu.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Box</span> <span class="pre">Plot</span></code>, hay còn gọi là biểu đồ hộp, là một cách hiệu quả để tóm tắt phân phối dữ liệu. Nó hiển thị năm số tóm tắt quan trọng: giá trị nhỏ nhất, tứ phân vị thứ nhất, trung vị, tứ phân vị thứ ba, và giá trị lớn nhất. Hộp chính giữa đại diện cho 50% dữ liệu ở giữa, với đường ngang trong hộp là trung vị. Các điểm nằm ngoài giá trị nhỏ nhất và giá trị lớn nhất được coi là các giá trị ngoại lệ và được biểu diễn riêng lẻ. <code class="docutils literal notranslate"><span class="pre">Box</span> <span class="pre">Plot</span></code> rất hữu ích trong việc so sánh phân phối giữa nhiều nhóm dữ liệu, cho phép ta dễ dàng nhận ra sự khác biệt về trung tâm, độ phân tán và sự xuất hiện của các giá trị ngoại lệ. Nó cũng giúp phát hiện nhanh chóng sự bất đối xứng trong phân phối dữ liệu.</p>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.boxplot(data</span> <span class="pre">=</span> <span class="pre">dataframe,</span> <span class="pre">x=</span> <span class="pre">&lt;column_name&gt;,</span> <span class="pre">y</span> <span class="pre">=</span> <span class="pre">&lt;column_name&gt;,…)</span></code></p>
 <figure class="align-default" id="boxplot-outlier">
 <img alt="../_images/boxplot_outliers_1.png" src="../_images/boxplot_outliers_1.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 36 </span><span class="caption-text">Box Plot cũng là dạng biểu đồ phân phối nhưng phân phối giá trị theo khoảng gọi là tứ phân vị.</span><a class="headerlink" href="#boxplot-outlier" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">Box Plot cũng là dạng biểu đồ phân phối nhưng phân phối giá trị theo khoảng gọi là tứ phân vị.</span><a class="headerlink" href="#boxplot-outlier" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Có 2 cách vẽ biểu đồ Box Plot: phân tích đơn biến (biến liên tục) và phân tích biến phân loại – biến liên tục.</p>
 <section id="phan-tich-don-bien-bien-lien-tuc">
-<h3>Phân tích đơn biến (biến liên tục)<a class="headerlink" href="#phan-tich-don-bien-bien-lien-tuc" title="Link to this heading"></a></h3>
-<p>Phân tích đơn biến là việc xem xét một biến số duy nhất tại một thời điểm. Khi sử dụng <strong>Box Plot</strong> cho phân tích đơn biến với biến liên tục, chúng ta tạo ra một biểu đồ hộp duy nhất cho toàn bộ tập dữ liệu. Phân tích này giúp chúng ta hiểu được phân phối tổng thể của biến, bao gồm xu hướng trung tâm, độ phân tán, và sự xuất hiện của các giá trị ngoại lệ.</p>
+<h3>Phân tích đơn biến (biến liên tục)<a class="headerlink" href="#phan-tich-don-bien-bien-lien-tuc" title="Link to this heading">#</a></h3>
+<p>Phân tích đơn biến là việc xem xét một biến số duy nhất tại một thời điểm. Khi sử dụng <code class="docutils literal notranslate"><span class="pre">Box</span> <span class="pre">Plot</span></code> cho phân tích đơn biến với biến liên tục, chúng ta tạo ra một biểu đồ hộp duy nhất cho toàn bộ tập dữ liệu. Phân tích này giúp chúng ta hiểu được phân phối tổng thể của biến, bao gồm xu hướng trung tâm, độ phân tán, và sự xuất hiện của các giá trị ngoại lệ.</p>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.boxplot(data=titanic,</span> <span class="pre">x='age')</span></code></p>
 <figure class="align-default" id="boxplot-bien-lien-tuc">
 <img alt="../_images/boxplot_bien_lien_tuc.png" src="../_images/boxplot_bien_lien_tuc.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 37 </span><span class="caption-text">Phân tích đơn biến về tuổi của hành khách dao động như thế nào trong tập dữ liệu titanic.</span><a class="headerlink" href="#boxplot-bien-lien-tuc" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Phân tích đơn biến về tuổi của hành khách dao động như thế nào trong tập dữ liệu titanic.</span><a class="headerlink" href="#boxplot-bien-lien-tuc" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="phan-tich-bien-phan-loai-bien-lien-tuc">
-<h3>Phân tích biến phân loại – biến liên tục<a class="headerlink" href="#phan-tich-bien-phan-loai-bien-lien-tuc" title="Link to this heading"></a></h3>
+<h3>Phân tích biến phân loại – biến liên tục<a class="headerlink" href="#phan-tich-bien-phan-loai-bien-lien-tuc" title="Link to this heading">#</a></h3>
 <p>Phân tích này liên quan đến việc xem xét mối quan hệ giữa một biến phân loại (categorical) và một biến liên tục. Trong Box Plot, chúng ta tạo ra nhiều hộp, mỗi hộp đại diện cho một nhóm của biến phân loại. Phân tích này cho phép chúng ta so sánh phân phối của biến liên tục giữa các nhóm khác nhau. Chúng ta có thể dễ dàng nhận ra sự khác biệt về trung vị, độ phân tán, và sự xuất hiện của các giá trị ngoại lệ giữa các nhóm.</p>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.boxplot(data=titanic,</span> <span class="pre">x='class',</span> <span class="pre">y='age')</span></code></p>
 <figure class="align-default" id="boxplot-bien-phan-loai-lien-tuc">
 <img alt="../_images/boxplot_bien_phan_loai_lien_tuc.png" src="../_images/boxplot_bien_phan_loai_lien_tuc.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Phân tích biến phân loại – biến liên tục: Sự phân bổ về độ tuổi giữa các hạng vé khác nhau như thế nào trong tập dữ liệu titanic.</span><a class="headerlink" href="#boxplot-bien-phan-loai-lien-tuc" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">Phân tích biến phân loại – biến liên tục: Sự phân bổ về độ tuổi giữa các hạng vé khác nhau như thế nào trong tập dữ liệu titanic.</span><a class="headerlink" href="#boxplot-bien-phan-loai-lien-tuc" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="violin-plot">
-<h2>Violin Plot<a class="headerlink" href="#violin-plot" title="Link to this heading"></a></h2>
-<p><strong>Violin Plot</strong> là sự kết hợp của Box Plot và Density Plot. Nó có hình dạng giống như một cây đàn violin, với phần rộng nhất thể hiện nơi dữ liệu tập trung nhiều nhất. Phần giữa của Violin Plot thường chứa một Box Plot thu nhỏ, cung cấp thông tin về các tứ phân vị và trung vị. Đường cong bên ngoài cho thấy phân phối dữ liệu, tương tự như Density Plot. <strong>Violin Plot</strong> đặc biệt hữu ích khi muốn hiểu sâu hơn về cấu trúc của dữ liệu, cho phép ta nhận ra các đặc điểm như tính đa phương thức (nhiều đỉnh) mà có thể bị bỏ qua trong Box Plot. Nó cũng giúp so sánh phân phối giữa nhiều nhóm dữ liệu một cách trực quan, cho thấy không chỉ các giá trị tóm tắt mà còn cả hình dạng tổng thể của phân phối.</p>
+<h2>Violin Plot<a class="headerlink" href="#violin-plot" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Violin</span> <span class="pre">Plot</span></code> là sự kết hợp của Box Plot và Density Plot. Nó có hình dạng giống như một cây đàn violin, với phần rộng nhất thể hiện nơi dữ liệu tập trung nhiều nhất. Phần giữa của Violin Plot thường chứa một Box Plot thu nhỏ, cung cấp thông tin về các tứ phân vị và trung vị. Đường cong bên ngoài cho thấy phân phối dữ liệu, tương tự như Density Plot. <code class="docutils literal notranslate"><span class="pre">Violin</span> <span class="pre">Plot</span></code> đặc biệt hữu ích khi muốn hiểu sâu hơn về cấu trúc của dữ liệu, cho phép ta nhận ra các đặc điểm như tính đa phương thức (nhiều đỉnh) mà có thể bị bỏ qua trong Box Plot. Nó cũng giúp so sánh phân phối giữa nhiều nhóm dữ liệu một cách trực quan, cho thấy không chỉ các giá trị tóm tắt mà còn cả hình dạng tổng thể của phân phối.</p>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.violinplot(x='class',</span> <span class="pre">y='age',</span> <span class="pre">hue='sex',</span> <span class="pre">data=titanic)</span></code></p>
 <figure class="align-default" id="id1">
 <img alt="../_images/violin_plot.png" src="../_images/violin_plot.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 39 </span><span class="caption-text">Biểu đồ Violin thể hiện tuổi của hành khách phân phối như thế nào khi xét theo giới tính và hạng vé trong tập dữ liệu titanic.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">Biểu đồ Violin thể hiện tuổi của hành khách phân phối như thế nào khi xét theo giới tính và hạng vé trong tập dữ liệu titanic.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="swarm-plot">
-<h2>Swarm Plot<a class="headerlink" href="#swarm-plot" title="Link to this heading"></a></h2>
-<p><strong>Swarm Plot</strong> là một biểu đồ thể hiện tất cả các điểm dữ liệu riêng lẻ mà không bị chồng chéo. Mỗi điểm trong <strong>Swarm Plot</strong> đại diện cho một quan sát trong tập dữ liệu. Các điểm được xếp dọc theo một trục (thường là trục y) và được “đẩy” sang ngang để tránh chồng lên nhau. Kết quả là một hình dạng giống như một đám ong, nơi phần rộng nhất cho biết nơi có nhiều điểm dữ liệu tập trung nhất. <strong>Swarm Plot</strong> rất hữu ích khi ta muốn thấy được phân phối thực tế của dữ liệu, đặc biệt khi số lượng điểm dữ liệu không quá lớn. Nó cho phép ta nhìn thấy mọi điểm dữ liệu, giúp phát hiện các mẫu hình, cụm, hoặc giá trị ngoại lệ mà có thể bị che giấu trong các loại biểu đồ khác. <strong>Swarm Plot</strong> cũng thường được kết hợp với các loại biểu đồ khác như Box Plot để cung cấp cái nhìn toàn diện hơn về dữ liệu.</p>
+<h2>Swarm Plot<a class="headerlink" href="#swarm-plot" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Swarm</span> <span class="pre">Plot</span></code> là một biểu đồ thể hiện tất cả các điểm dữ liệu riêng lẻ mà không bị chồng chéo. Mỗi điểm trong <code class="docutils literal notranslate"><span class="pre">Swarm</span> <span class="pre">Plot</span></code> đại diện cho một quan sát trong tập dữ liệu. Các điểm được xếp dọc theo một trục (thường là trục y) và được “đẩy” sang ngang để tránh chồng lên nhau. Kết quả là một hình dạng giống như một đám ong, nơi phần rộng nhất cho biết nơi có nhiều điểm dữ liệu tập trung nhất. <code class="docutils literal notranslate"><span class="pre">Swarm</span> <span class="pre">Plot</span></code> rất hữu ích khi ta muốn thấy được phân phối thực tế của dữ liệu, đặc biệt khi số lượng điểm dữ liệu không quá lớn. Nó cho phép ta nhìn thấy mọi điểm dữ liệu, giúp phát hiện các mẫu hình, cụm, hoặc giá trị ngoại lệ mà có thể bị che giấu trong các loại biểu đồ khác. <code class="docutils literal notranslate"><span class="pre">Swarm</span> <span class="pre">Plot</span></code> cũng thường được kết hợp với các loại biểu đồ khác như Box Plot để cung cấp cái nhìn toàn diện hơn về dữ liệu.</p>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.swarmplot(x='class',</span> <span class="pre">y='fare',</span> <span class="pre">hue='survived',</span> <span class="pre">data=titanic)</span></code></p>
 <figure class="align-default" id="id2">
 <img alt="../_images/swarm_plot.png" src="../_images/swarm_plot.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 40 </span><span class="caption-text">Biểu đồ Swarm Plot trả lời cho câu hỏi: <i><b>Liệu hành khách mua vé giá cao hơn có khả năng sống sót cao hơn không?</b></i> trong tập dữ liệu titanic.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Biểu đồ Swarm Plot trả lời cho câu hỏi: <i><b>Liệu hành khách mua vé giá cao hơn có khả năng sống sót cao hơn không?</b></i> trong tập dữ liệu titanic.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="strip-plot">
-<h2>Strip Plot<a class="headerlink" href="#strip-plot" title="Link to this heading"></a></h2>
-<p><strong>Strip Plot</strong> là một phiên bản đơn giản hơn của <strong>Swarm Plot</strong>. Nó hiển thị mỗi điểm dữ liệu như một dấu chấm riêng biệt, nhưng không cố gắng tránh sự chồng chéo giữa các điểm. Tất cả các điểm được đặt dọc theo một đường thẳng, thường là trục y. Vị trí của mỗi điểm trên trục này phản ánh giá trị của nó, trong khi vị trí ngang được chọn ngẫu nhiên trong một phạm vi nhất định. <strong>Strip Plot</strong> hữu ích khi ta muốn xem xét phân phối tổng thể của dữ liệu và nhận ra các giá trị cụ thể. Nó đặc biệt hiệu quả khi số lượng điểm dữ liệu không quá lớn và khi ta muốn so sánh phân phối giữa các nhóm khác nhau. Mặc dù đơn giản, <strong>Strip Plot</strong> vẫn cung cấp một cái nhìn trực quan về mật độ của dữ liệu ở các vùng khác nhau. Nó thường được kết hợp với các loại biểu đồ khác như Box Plot để cung cấp thêm thông tin chi tiết về phân phối dữ liệu.</p>
+<h2>Strip Plot<a class="headerlink" href="#strip-plot" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Strip</span> <span class="pre">Plot</span></code> là một phiên bản đơn giản hơn của Swarm Plot. Nó hiển thị mỗi điểm dữ liệu như một dấu chấm riêng biệt, nhưng không cố gắng tránh sự chồng chéo giữa các điểm. Tất cả các điểm được đặt dọc theo một đường thẳng, thường là trục y. Vị trí của mỗi điểm trên trục này phản ánh giá trị của nó, trong khi vị trí ngang được chọn ngẫu nhiên trong một phạm vi nhất định. <code class="docutils literal notranslate"><span class="pre">Strip</span> <span class="pre">Plot</span></code> hữu ích khi ta muốn xem xét phân phối tổng thể của dữ liệu và nhận ra các giá trị cụ thể. Nó đặc biệt hiệu quả khi số lượng điểm dữ liệu không quá lớn và khi ta muốn so sánh phân phối giữa các nhóm khác nhau. Mặc dù đơn giản, <code class="docutils literal notranslate"><span class="pre">Strip</span> <span class="pre">Plot</span></code> vẫn cung cấp một cái nhìn trực quan về mật độ của dữ liệu ở các vùng khác nhau. Nó thường được kết hợp với các loại biểu đồ khác như Box Plot để cung cấp thêm thông tin chi tiết về phân phối dữ liệu.</p>
 <p><strong>Cú pháp</strong>: <code class="docutils literal notranslate"><span class="pre">sns.stripplot(x='class',</span> <span class="pre">y='fare',</span> <span class="pre">hue='survived',</span> <span class="pre">data=titanic)</span></code></p>
 <figure class="align-default">
 <img alt="../_images/strip_plot.png" src="../_images/strip_plot.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 41 </span><span class="caption-text">Biểu đồ Strip Plot trả lời cho câu hỏi: <i><b>Liệu hành khách mua vé giá cao hơn có khả năng sống sót cao hơn không?</b></i> trong tập dữ liệu titanic.
-</figcaption>
 </figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -609,7 +606,7 @@ By Trung tâm Tin học - Đại học Khoa học Tự nhiên
 
   <p class="copyright">
     
-      © Copyright 2024.
+      © Copyright 2023.
       <br/>
     
   </p>
