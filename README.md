@@ -1,2 +1,0 @@
-# DA03_Data_Visualization
-DA03_Data_Visualization Materials
